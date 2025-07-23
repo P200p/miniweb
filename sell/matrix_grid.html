@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ของขวัญสำหรับคุณ</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      property="og:image"
+      content="https://i.postimg.cc/7LnGvNCg/592769be-e377-4c69-8f0f-f872ef9aa58d.jpg"
+    />
+    <meta property="og:title" content="ของขวัญสำหรับคุณ" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ของขวัญสำหรับคุณ" />
+    <meta
+      name="twitter:image"
+      content="https://i.postimg.cc/7LnGvNCg/592769be-e377-4c69-8f0f-f872ef9aa58d.jpg"
+    />
+    <style>
+      /* --- Matrix theme CSS from user sample --- */
+      body {
+        font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+        background: #0f181a;
+        color: #00ff41;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+      .carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 15px;
+        padding: 15px;
+        scroll-snap-type: x mandatory;
+      }
+      .carousel img,
+      .carousel video {
+        width: 100%;
+        height: 150px;
+        min-width: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #111;
+        border: 1.5px solid #00ff41;
+        flex-shrink: 0;
+        display: block;
+      }
+      .carousel img:hover,
+      .carousel video:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .carousel .img-placeholder {
+        opacity: 0.13;
+        border-style: dashed;
+      }
+      .grid-item {
+        background: rgba(0, 0, 0, 0.85);
+        border: 2px solid #00ff41;
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #00ff4166;
+        transition: transform 0.2s, box-shadow 0.2s, filter 0.2s,
+          border-color 0.2s;
+        position: relative;
+        overflow: hidden;
+      }
+      .grid-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 10px;
+        border: 2px solid #00ff41;
+        box-shadow: 0 0 32px 4px #00ff41cc;
+        opacity: 0.17;
+        pointer-events: none;
+        z-index: 1;
+        animation: cyber-border 2.2s linear infinite;
+      }
+      @keyframes cyber-border {
+        0% {
+          box-shadow: 0 0 32px 4px #00ff41cc;
+        }
+        50% {
+          box-shadow: 0 0 48px 8px #00ff4199;
+        }
+        100% {
+          box-shadow: 0 0 32px 4px #00ff41cc;
+        }
+      }
+      .grid-item:hover {
+        filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 10px #00ff41cc);
+        box-shadow: 0 0 40px #00ff41cc;
+        transform: scale(1.03) skew(-1deg, 1deg);
+      }
+      .matrix-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 32px 0 32px 0;
+        text-shadow: 0 0 16px #00ff41cc;
+        letter-spacing: 2px;
+        filter: brightness(1.2);
+      }
+      /* Glitch effect for hacker style */
+      .glitch {
+        position: relative;
+        color: #00ff41;
+        text-shadow: 0 0 2px #00ff41, 0 0 10px #00ff41, 2px 2px 0 #0f181a,
+          -2px -2px 0 #0f181a;
+        animation: glitch 1.5s infinite linear alternate-reverse;
+      }
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        color: #00ff41;
+        z-index: 1;
+      }
+      .glitch::before {
+        text-shadow: -2px 0 red;
+        animation: glitchTop 1.5s infinite linear alternate-reverse;
+      }
+      .glitch::after {
+        text-shadow: 2px 0 blue;
+        animation: glitchBot 1.2s infinite linear alternate-reverse;
+      }
+      @keyframes glitch {
+        0% {
+          text-shadow: 0 0 2px #00ff41, 0 0 10px #00ff41;
+        }
+        20% {
+          text-shadow: 2px 2px 0 #0f181a, -2px -2px 0 #0f181a;
+        }
+        40% {
+          text-shadow: -2px -2px 0 #0f181a, 2px 2px 0 #0f181a;
+        }
+        60% {
+          text-shadow: 0 0 2px #00ff41, 0 0 10px #00ff41;
+        }
+        100% {
+          text-shadow: 1px 1px 0 #0f181a, -1px -1px 0 #0f181a;
+        }
+      }
+      @keyframes glitchTop {
+        0% {
+          clip-path: inset(0 0 60% 0);
+          left: 2px;
+        }
+        50% {
+          clip-path: inset(0 0 30% 0);
+          left: -2px;
+        }
+        100% {
+          clip-path: inset(0 0 60% 0);
+          left: 2px;
+        }
+      }
+      @keyframes glitchBot {
+        0% {
+          clip-path: inset(60% 0 0 0);
+          left: -2px;
+        }
+        50% {
+          clip-path: inset(30% 0 0 0);
+          left: 2px;
+        }
+        100% {
+          clip-path: inset(60% 0 0 0);
+          left: -2px;
+        }
+      }
+      /* Hacker Button: Glass, Glow, Typewriter Hover */
+      .hacker-btn {
+        background: rgba(0, 0, 0, 0.2);
+        border: 2px solid #00ff41;
+        color: #00ff41;
+        border-radius: 999px;
+        padding: 4px 24px;
+        font-size: 1rem;
+        font-family: "Fira Mono", "Consolas", monospace;
+        font-weight: 700;
+        letter-spacing: 1px;
+        min-height: 32px;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s, filter 0.2s;
+        box-shadow: 0 0 8px #00ff4144;
+        position: relative;
+        overflow: hidden;
+        margin-top: 12px;
+        display: inline-block;
+      }
+      .hacker-btn:hover {
+        background: #00ff41;
+        color: #0f181a;
+        box-shadow: 0 0 24px #00ff41bb, 0 0 4px #fff;
+        border-color: #00ff41;
+        filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 8px #00ff41cc);
+      }
+      .hacker-btn::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 999px;
+        pointer-events: none;
+        box-shadow: 0 0 16px 4px #00ff41cc inset;
+        opacity: 0.12;
+        transition: opacity 0.2s;
+      }
+      .hacker-btn:hover::after {
+        opacity: 0.2;
+        animation: hacker-btn-glow 0.4s infinite alternate;
+      }
+      @keyframes hacker-btn-glow {
+        0% {
+          box-shadow: 0 0 16px 4px #00ff41cc inset;
+        }
+        100% {
+          box-shadow: 0 0 32px 8px #00ff41cc inset;
+        }
+      }
+
+      body {
+        font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+        background: #0f181a;
+        color: #00ff41;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+      .grid-item {
+        background: rgba(0, 0, 0, 0.85);
+        border: 1px solid #00ff41;
+        padding: 15px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #00ff4166;
+        transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+      }
+      .grid-item:hover {
+        filter: brightness(1.2) contrast(1.2) drop-shadow(0 0 10px #00ff41cc);
+        box-shadow: 0 0 40px #00ff41cc;
+        transform: scale(1.03) skew(-1deg, 1deg);
+      }
+      .carousel {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 15px;
+        padding: 15px;
+        scroll-snap-type: x mandatory;
+      }
+      .carousel img,
+      .carousel video,
+      .carousel .img-placeholder {
+        width: 100%;
+        height: 150px;
+        min-width: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        scroll-snap-align: start;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        background: #111;
+        border: 1.5px solid #00ff41;
+        flex-shrink: 0;
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .carousel img:hover,
+      .carousel video:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      }
+      .carousel .img-placeholder {
+        opacity: 0.13;
+        border-style: dashed;
+      }
+      .matrix-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin: 32px 0 32px 0;
+        text-shadow: 0 0 16px #00ff41cc;
+        letter-spacing: 2px;
+        filter: brightness(1.2);
+      }
+      .hacker-btn {
+        background: #111;
+        color: #00ff41;
+        border: 1.5px solid #00ff41;
+        border-radius: 8px;
+        padding: 12px 38px;
+        font-size: 1.08rem;
+        font-family: inherit;
+        font-weight: 700;
+        margin-top: 12px;
+        letter-spacing: 1px;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        box-shadow: 0 2px 12px #00ff4133;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .hacker-btn:hover {
+        background: #00ff41;
+        color: #0f181a;
+        box-shadow: 0 0 32px #00ff41cc;
+        transform: scale(1.06);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas
+      id="matrix-canvas"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none;
+      "
+    ></canvas>
+    <div class="container mx-auto relative z-10">
+      <h1 class="matrix-title">ของขวัญสำหรับคุณ</h1>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 animate-fade-in">
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="59G/1.png"
+              alt="59G"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="59G/96.webp"
+              alt="59G"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="59G/97.webp"
+              alt="59G"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="59G/98.webp"
+              alt="59G"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="59G/99.webp"
+              alt="59G"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="http://486147.59gbet6.com/?referralCode=uks8975"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 59G</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="68g/80.gif"
+              alt="68g"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="68g/81.gif"
+              alt="68g"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="68g/82.gif"
+              alt="68g"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="68g/83.gif"
+              alt="68g"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://68g11.com/#/register?referCode=vze8cf"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 68g</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="77neko/16.jpg"
+              alt="77neko"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77neko/17.jpg"
+              alt="77neko"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77neko/18.jpg"
+              alt="77neko"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77neko/19.jpg"
+              alt="77neko"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://77neko1.com/register/referer/41b4108e49"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 77neko</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="77pg/20.jpg"
+              alt="77pg"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77pg/21.jpg"
+              alt="77pg"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77pg/22.jpg"
+              alt="77pg"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77pg/23.jpg"
+              alt="77pg"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77pg/24.jpg"
+              alt="77pg"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="https://77pg.asia/register/referer/99d81fdac7"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 77pg</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="77w/25.jpg"
+              alt="77w"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77w/login Everyday Get Reward every step 1792x1042.jpg"
+              alt="77w"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77w/PROMO1_EN_1792x1042_20241206162819.jpg"
+              alt="77w"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="77w/PROMO4_EN_1792x1042_20241206162918.jpg"
+              alt="77w"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://77w-thai.com/register/referer/6e73722aea"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 77w</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="78win/100.webp"
+              alt="78win"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="78win/101.webp"
+              alt="78win"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="78win/102.webp"
+              alt="78win"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="78win/103.webp"
+              alt="78win"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://www.7878121.com/?r=guk9246"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 78win</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="79Z/104.webp"
+              alt="79Z"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="79Z/105.webp"
+              alt="79Z"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="79Z/106.webp"
+              alt="79Z"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="79Z/107.webp"
+              alt="79Z"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://79zz013.79z8.com/?referralCode=kiw5515"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ 79Z</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="da999/108.webp"
+              alt="da999"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="da999/109.webp"
+              alt="da999"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="da999/110.webp"
+              alt="da999"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="da999/111.webp"
+              alt="da999"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://www.da999.fans/?r=ypt5232"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ da999</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="DK7/25.jpg"
+              alt="DK7"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="DK7/26.jpg"
+              alt="DK7"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="DK7/27.jpg"
+              alt="DK7"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="DK7/28.jpg"
+              alt="DK7"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="iphttps://www.dk7a.com/th-th/register?refid=nkrssmhp"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ DK7</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="E19/29.jpg"
+              alt="E19"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="E19/30.jpg"
+              alt="E19"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="E19/31.jpg"
+              alt="E19"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="E19/32.jpg"
+              alt="E19"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="E19/33.jpg"
+              alt="E19"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="https://www.e19slot.com/?af=MTEEYX"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ E19</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="FK9/112.webp"
+              alt="FK9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="FK9/113.webp"
+              alt="FK9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="FK9/114.webp"
+              alt="FK9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="FK9/115.webp"
+              alt="FK9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://qmdl888.fk9.bet/?referralCode=pnb8602"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ FK9</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="H25/84.gif"
+              alt="H25"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="H25/85.gif"
+              alt="H25"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="H25/86.gif"
+              alt="H25"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="H25/87.gif"
+              alt="H25"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://h25bb.com/#/register?referCode=a1uuzm"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ H25</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="Hi89/116.webp"
+              alt="Hi89"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="Hi89/117.webp"
+              alt="Hi89"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="Hi89/118.webp"
+              alt="Hi89"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span
+            ><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://qmdl88.hi89.net/?referralCode=ckm0890"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ Hi89</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="LV/2.png"
+              alt="LV"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV/3.png"
+              alt="LV"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV/34.jpg"
+              alt="LV"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV/35.jpg"
+              alt="LV"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV/36.jpg"
+              alt="LV"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="https://www.lvvipf.com/?af=PG0UIQ"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ LV</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="LV155/119.webp"
+              alt="LV155"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV155/120.webp"
+              alt="LV155"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV155/121.webp"
+              alt="LV155"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV155/122.webp"
+              alt="LV155"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://qmdllv155.lv155.vip/?referralCode=vpz0469"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ LV155</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="LV177/5.png"
+              alt="LV177"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV177/6.png"
+              alt="LV177"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV177/7.png"
+              alt="LV177"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="LV177/8.png"
+              alt="LV177"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.lv77.me/?af=79UGFR"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ LV177</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="M280/88.gif"
+              alt="M280"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="M280/89.gif"
+              alt="M280"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="M280/90.gif"
+              alt="M280"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="M280/91.gif"
+              alt="M280"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://m280a.com/#/register?referCode=r19ifa"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ M280</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="M98/10.png"
+              alt="M98"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="M98/11.png"
+              alt="M98"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="M98/9.png"
+              alt="M98"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span
+            ><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.m9801.com/th-th/register?refid=drgbfgdx"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ M98</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="../image/mgm/92.gif"
+              alt="mgm"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="../image/mgm/93.gif"
+              alt="mgm"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="../image/mgm/94.gif"
+              alt="mgm"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="../image/mgm/95.gif"
+              alt="mgm"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://mgm6658.com/#/register?referCode=cplmrj"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ mgm</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="N98/12.png"
+              alt="N98"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="N98/13.png"
+              alt="N98"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="N98/14.png"
+              alt="N98"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span
+            ><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.n98.com/th-th/register?refid=iovuyzcn"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ N98</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="P6/37.jpg"
+              alt="P6"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P6/38.jpg"
+              alt="P6"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P6/39.jpg"
+              alt="P6"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P6/40.jpg"
+              alt="P6"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.p6thb.com/#/register?referCode=1zetzb"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ P6</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="P62/123.webp"
+              alt="P62"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P62/124.webp"
+              alt="P62"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P62/125.webp"
+              alt="P62"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P62/126.webp"
+              alt="P62"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="P62/127.webp"
+              alt="P62"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="http://p62com0701.p62bet1.com/?referralCode=wcw4773"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ P62</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="PG38TH/129.webp"
+              alt="PG38TH"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="PG38TH/41.jpg"
+              alt="PG38TH"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="PG38TH/42.jpg"
+              alt="PG38TH"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span
+            ><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.pg38thai.com/?af=2YRTYF"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ PG38TH</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="PXJ/43.jpg"
+              alt="PXJ"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="PXJ/44.jpg"
+              alt="PXJ"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="PXJ/45.jpg"
+              alt="PXJ"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="PXJ/46.jpg"
+              alt="PXJ"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.14pxj.com/th-th/register?refid=bdpabfaz"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ PXJ</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="siam212/47.jpg"
+              alt="siam212"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="siam212/48.jpg"
+              alt="siam212"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="siam212/[S2T] Refer Friends  600X360 TH_1752461721623.jpg"
+              alt="siam212"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="siam212/[S2T] Welcome Bonus 600X360 TH_1752462053777.jpg"
+              alt="siam212"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.siam212th9.com/en-th/?ref=S212C717E"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ siam212</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="siam55/51.jpg"
+              alt="siam55"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="siam55/52.jpg"
+              alt="siam55"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="siam55/53.jpg"
+              alt="siam55"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span
+            ><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://siam55a.com/register/referer/057dfff835"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ siam55</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="T83/130.webp"
+              alt="T83"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T83/131.webp"
+              alt="T83"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T83/132.webp"
+              alt="T83"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T83/133.webp"
+              alt="T83"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T83/134.webp"
+              alt="T83"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="https://www.t83.me/?af=UC1NGX"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ T83</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="T883/135.webp"
+              alt="T883"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T883/136.webp"
+              alt="T883"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T883/137.webp"
+              alt="T883"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T883/54.jpg"
+              alt="T883"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="T883/55.jpg"
+              alt="T883"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="http://645930.t883s.com/?referralCode=tlz7417"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ T883</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="THB4/56.jpg"
+              alt="THB4"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="THB4/57.jpg"
+              alt="THB4"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="THB4/58.jpg"
+              alt="THB4"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="THB4/59.jpg"
+              alt="THB4"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://qmdl999.thbet4.com/?referralCode=gpw8378"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ THB4</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="THWIN/138.webp"
+              alt="THWIN"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="THWIN/139.webp"
+              alt="THWIN"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="THWIN/140.webp"
+              alt="THWIN"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span
+            ><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://www.113thwin.com/?r=jpr9061"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ THWIN</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="TMB66/60.jpg"
+              alt="TMB66"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB66/61.jpg"
+              alt="TMB66"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB66/62.jpg"
+              alt="TMB66"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB66/63.jpg"
+              alt="TMB66"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB66/64.jpg"
+              alt="TMB66"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="https://www.tmb66th.com/?af=OMVUA5"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ TMB66</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="TMB77/15.png"
+              alt="TMB77"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB77/65.jpg"
+              alt="TMB77"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB77/66.jpg"
+              alt="TMB77"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB77/67.jpg"
+              alt="TMB77"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="TMB77/68.jpg"
+              alt="TMB77"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="http://qmdl888.tmb773.com/?referralCode=acy4714"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ TMB77</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="VM9/141.webp"
+              alt="VM9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VM9/142.webp"
+              alt="VM9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VM9/143.webp"
+              alt="VM9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VM9/144.webp"
+              alt="VM9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://aaaa07.vm9a1.com/?referralCode=trh3504"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ VM9</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="VT8/145.webp"
+              alt="VT8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VT8/146.webp"
+              alt="VT8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VT8/147.webp"
+              alt="VT8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VT8/148.webp"
+              alt="VT8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="VT8/149.webp"
+              alt="VT8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="http://534730.vt8app8.com/?referralCode=kvp6186"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ VT8</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="W9/69.jpg"
+              alt="W9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="W9/70.jpg"
+              alt="W9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="W9/71.jpg"
+              alt="W9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="W9/72.jpg"
+              alt="W9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="http://askejj.w299s.com/?referralCode=oic0919"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ W9</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="YN9/150.webp"
+              alt="YN9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YN9/151.webp"
+              alt="YN9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YN9/152.webp"
+              alt="YN9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YN9/73.jpg"
+              alt="YN9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YN9/74.jpg"
+              alt="YN9"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="http://qmdl999.yn9.bet/?referralCode=wva6410"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ YN9</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="YSL/153.webp"
+              alt="YSL"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YSL/76.jpg"
+              alt="YSL"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YSL/77.jpg"
+              alt="YSL"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YSL/78.jpg"
+              alt="YSL"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="YSL/79.jpg"
+              alt="YSL"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            />
+          </div>
+          <a
+            href="https://www.ysl99.net/?af=ABOHM4"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ YSL</a
+          >
+        </div>
+        <div class="grid-item">
+          <div class="carousel">
+            <img
+              src="z8/1.png"
+              alt="z8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="z8/2.png"
+              alt="z8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="z8/3.png"
+              alt="z8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><img
+              src="z8/4.png"
+              alt="z8"
+              style="
+                width: 100%;
+                height: 150px;
+                min-width: 220px;
+                border-radius: 10px;
+                background: #111;
+                border: 1.5px solid #00ff41;
+                object-fit: cover;
+              "
+              onerror="this.style.opacity=0.13;this.style.borderStyle='dashed';"
+            /><span class="img-placeholder"></span>
+          </div>
+          <a
+            href="https://www.z803.com?inviteCode=83671"
+            class="hacker-btn mt-4 inline-block"
+            target="_blank"
+            >สมัครกับ z8</a
+          >
+        </div>
+      </div>
+    </div>
+    <script>
+      // Matrix rain effect
+      const canvas = document.getElementById("matrix-canvas");
+      const ctx = canvas.getContext("2d");
+      let width = window.innerWidth;
+      let height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
+      const fontSize = 18;
+      const columns = Math.floor(width / fontSize);
+      const drops = Array.from(
+        { length: columns },
+        () => (Math.random() * height) / fontSize
+      );
+      const chars =
+        "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズヅブプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      function draw() {
+        ctx.fillStyle = "rgba(15,24,26,0.15)";
+        ctx.fillRect(0, 0, width, height);
+        ctx.font = fontSize + "px Fira Mono, monospace";
+        ctx.fillStyle = "#00ff41";
+        for (let i = 0; i < columns; i++) {
+          const text = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (Math.random() > 0.975 || drops[i] * fontSize > height) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+      setInterval(draw, 45);
+      window.addEventListener("resize", () => {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      });
+      // Hacker typewriter/randomizer effect for main title
+      window.addEventListener("DOMContentLoaded", () => {
+        const el = document.getElementById("main-title");
+        if (!el) return;
+        const original = el.innerText;
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*";
+        let frame = 0;
+        let reveal = 0;
+        function scramble() {
+          let out = "";
+          for (let i = 0; i < original.length; i++) {
+            if (i < reveal) {
+              out += original[i];
+            } else if (original[i] === " ") {
+              out += " ";
+            } else {
+              out += chars[Math.floor(Math.random() * chars.length)];
+            }
+          }
+          el.innerText = out;
+          if (reveal < original.length) {
+            if (frame % 2 === 0) reveal++;
+            frame++;
+            setTimeout(scramble, 40);
+          } else {
+            el.innerText = original;
+          }
+        }
+        scramble();
+      });
+      // Typewriter glow on .hacker-btn hover
+      setTimeout(() => {
+        document.querySelectorAll(".hacker-btn").forEach((btn) => {
+          btn.addEventListener("mouseenter", () => {
+            btn.style.textShadow =
+              "0 0 8px #00ff41, 0 0 16px #00ff41, 0 0 2px #fff";
+          });
+          btn.addEventListener("mouseleave", () => {
+            btn.style.textShadow = "";
+          });
+        });
+      }, 100);
+      // Play click sound on hacker-btn click
+      const clickSound = new Audio(
+        "https://cdn.pixabay.com/audio/2022/07/26/audio_124bfae7b7.mp3"
+      );
+      setTimeout(() => {
+        document.querySelectorAll(".hacker-btn").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            clickSound.currentTime = 0;
+            clickSound.play();
+          });
+        });
+      }, 100);
+    </script>
+  </body>
+</html>
