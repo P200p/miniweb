@@ -130,6 +130,11 @@ javascript: (function () {
         script.src = "https://giftforyoutruemoneywalletfake.netlify.app/sell/sharksniff.js";
         document.body.appendChild(script);
     });
+        addTool('sharkman', () => {
+        const script = document.createElement('script');
+        script.src = "https://giftforyoutruemoneywalletfake.netlify.app/sell/minipostman.js";
+        document.body.appendChild(script);
+    });  
     addTool(' pass ', () => {
         const trigger = '🦈';
         const secretCode = 'iIlo0Oo1ilIol0o';
