@@ -1,362 +1,287 @@
-javascript:(function(){
+javascript: (function () {
   // 🦈 Panel DevTool ฉบับ Hacker
   const panel = document.createElement('div');
   panel.style.cssText = `
-    position:fixed; top:20px; right:20px; z-index:999999;
-    background:#000; color:#00ff00; padding:8px; border-radius:8px;
+    position:fixed; top:60px; right:20px; z-index:999999;
+    background:#00ffccaa; color:#F0F0F0; padding:8px; border-radius:8px;
     font-family:monospace; font-size:14px; border:2px solid #ff0000;
     box-shadow:0 0 10px #ff0000aa;
-    width:140px; height:500px; overflow:hidden;
+    width:140px; height:400px; overflow:hidden;
   `;
-
-  // 🧱 Sections สำหรับแต่ละโหมด
-  function createSection(){
-    const sec = document.createElement('div');
-    sec.style.cssText = 'overflow:auto; height:calc(100% - 34px); margin-bottom:6px;';
-    return sec;
-  }
-  const postmanSection = createSection();
-  const toolsSection   = createSection();
-  panel.appendChild(postmanSection);
-  panel.appendChild(toolsSection);
-
-  let currentMode = 'postman';
-  const sections = { postman: postmanSection, tools: toolsSection };
-  const collapsed = { postman: false, tools: false };
-
-  function updateSections(){
-    Object.keys(sections).forEach(mode => {
-      const sec = sections[mode];
-      sec.style.display = (mode === currentMode && !collapsed[mode]) ? 'block' : 'none';
-    });
-    panel.style.height = collapsed[currentMode] ? '34px' : '500px';
-  }
-
-  function switchMode(){
-    currentMode = currentMode==='postman'?'tools':'postman';
-    updateSections();
-  }
-
-  function toggleSection(){
-    collapsed[currentMode] = !collapsed[currentMode];
-    updateSections();
-  }
 
   // 🎛️ Control Bar
   const controlBar = document.createElement('div');
   controlBar.style.cssText = 'display:flex; justify-content:flex-end; gap:4px; margin-bottom:6px;';
 
-  [['↕','พับเก็บ',toggleSection],
-   ['🔁','สลับโหมด',switchMode],
-   ['❌','ปิดหน้าต่าง',()=>panel.remove()]]
-  .forEach(([txt,ttl,fn])=>{
-    const btn = document.createElement('button');
-    btn.textContent = txt;
-    btn.title = ttl;
-    btn.style.cssText = `
-      padding:2px 6px; background:#111; color:#0f0;
-      border:none; border-radius:4px; cursor:pointer;
-      font-family:monospace;margin: 0 8px; // บน-ล่าง 0, ซ้าย-ขวา 15px
-    `;
-    btn.onclick = fn;
-    controlBar.appendChild(btn);
+  // เพิ่มปุ่มพับ/ขยาย
+  let minimized = false;
+  const minimizeBtn = document.createElement('button');
+  minimizeBtn.textContent = '↕';
+  minimizeBtn.title = 'พับ/ขยาย';
+  minimizeBtn.style.cssText = `
+    padding:2px 6px; background:#00ffccaa; color:#0f0;
+    border:1px solid #ff0000; border-radius:4px; cursor:pointer;
+    font-family:monospace; margin: 0 4px; 
+  `;
+  minimizeBtn.onclick = () => {
+    minimized = !minimized;
+    panel.style.height = minimized ? '36px' : '400px';
+    panel.style.overflow = minimized ? 'hidden' : 'auto';
+  };
+
+  // --- จุดลาก (Drag Handle) ---
+  const dragHandle = document.createElement('div');
+  dragHandle.title = 'ลากแผง';
+  dragHandle.style.cssText = `
+    width:22px; height:22px; display:inline-block;
+    margin:0 2px; cursor:move; border-radius:4px;
+    background:rgba(0,0,0,0.10); border:1px dashed #ff0000;
+    vertical-align:middle;
+  `;
+  // รองรับลากทั้ง mouse และ touch
+  let shiftX, shiftY, dragging = false;
+  dragHandle.addEventListener('mousedown', e => {
+    dragging = true;
+    panel.style.left = panel.getBoundingClientRect().left + 'px';
+    panel.style.top = panel.getBoundingClientRect().top + 'px';
+    panel.style.right = '';
+    shiftX = e.clientX - panel.getBoundingClientRect().left;
+    shiftY = e.clientY - panel.getBoundingClientRect().top;
+    document.addEventListener('mousemove', onDragMove);
+    document.addEventListener('mouseup', onDragEnd);
+    e.preventDefault();
   });
+  dragHandle.addEventListener('touchstart', e => {
+    dragging = true;
+    const t = e.touches[0];
+    panel.style.left = panel.getBoundingClientRect().left + 'px';
+    panel.style.top = panel.getBoundingClientRect().top + 'px';
+    panel.style.right = '';
+    shiftX = t.clientX - panel.getBoundingClientRect().left;
+    shiftY = t.clientY - panel.getBoundingClientRect().top;
+    document.addEventListener('touchmove', onDragMoveTouch);
+    document.addEventListener('touchend', onDragEndTouch);
+    e.preventDefault();
+  });
+  function onDragMove(e) {
+    if (!dragging) return;
+    panel.style.left = (e.pageX - shiftX) + 'px';
+    panel.style.top = (e.pageY - shiftY) + 'px';
+  }
+  function onDragEnd() {
+    dragging = false;
+    document.removeEventListener('mousemove', onDragMove);
+    document.removeEventListener('mouseup', onDragEnd);
+  }
+  function onDragMoveTouch(e) {
+    if (!dragging) return;
+    const t = e.touches[0];
+    panel.style.left = (t.clientX - shiftX) + 'px';
+    panel.style.top = (t.clientY - shiftY) + 'px';
+  }
+  function onDragEndTouch() {
+    dragging = false;
+    document.removeEventListener('touchmove', onDragMoveTouch);
+    document.removeEventListener('touchend', onDragEndTouch);
+  }
+
+  controlBar.appendChild(dragHandle);
+  controlBar.appendChild(minimizeBtn);
+
+  [['❌', 'ปิดหน้าต่าง', () => panel.remove()]]
+    .forEach(([txt, ttl, fn]) => {
+      const btn = document.createElement('button');
+      btn.textContent = txt;
+      btn.title = ttl;
+      btn.style.cssText = `
+      padding:2px 6px; background:#00ffccaa; color:#0f0;
+      border:1px solid #ff0000; border-radius:4px; cursor:pointer;
+      font-family:monospace; margin: 0 4px;
+    `;
+      btn.onclick = fn;
+      controlBar.appendChild(btn);
+    });
   panel.appendChild(controlBar);
 
-  // 🧪 POSTMAN ส่วนกรอก URL / Header / Body
-  const urlInput = document.createElement('input');
-  urlInput.placeholder = 'URL';
-  urlInput.style.cssText = `width:100%; margin-bottom:4px; padding:4px; background:#111; color:#0f0; border:none; border-radius:4px; font-family:monospace;`;
-
-  const methodSelect = document.createElement('select');
-  ['GET','POST','PUT','DELETE'].forEach(m => {
-    const o = document.createElement('option'); o.value = m; o.textContent = m;
-    methodSelect.appendChild(o);
-  });
-  methodSelect.style.cssText = urlInput.style.cssText;
-
-  const headersInput = document.createElement('textarea');
-  headersInput.placeholder = 'Headers (JSON)';
-  headersInput.style.cssText = `width:100%; height:50px; margin-bottom:4px; padding:4px; background:#111; color:#0f0; border:none; border-radius:4px; font-family:monospace;`;
-
-  const bodyInput = document.createElement('textarea');
-  bodyInput.placeholder = 'Body';
-  bodyInput.style.cssText = headersInput.style.cssText;
-
-  const sendBtn = document.createElement('button');
-  sendBtn.textContent = '🚀 ส่งคำขอ';
-  sendBtn.style.cssText = `width:100%; margin-bottom:4px; padding:6px; background:#111; color:#0f0; border:none; border-radius:6px; cursor:pointer; font-family:monospace;`;
-
-  let lastResponse = '';
-  sendBtn.onclick = () => {
-    let headers = {};
-    try { headers = JSON.parse(headersInput.value) }
-    catch { alert('รูปแบบ Header ไม่ถูกต้อง'); return; }
-    fetch(urlInput.value, {
-      method: methodSelect.value,
-      headers: headers,
-      body: methodSelect.value !== 'GET' ? bodyInput.value : null
-    })
-    .then(r => r.text())
-    .then(txt => { lastResponse = txt; alert('ผลลัพธ์:\n'+txt) })
-    .catch(e => alert('เกิดข้อผิดพลาด: '+e));
-  };
-
-  const downloadBtn = document.createElement('button');
-  downloadBtn.textContent = '💾 ดาวน์โหลด';
-  downloadBtn.style.cssText = sendBtn.style.cssText;
-  downloadBtn.onclick = () => {
-    if(!lastResponse){ alert('ไม่มีผลลัพธ์'); return; }
-    const blob = new Blob([lastResponse], {type:'text/plain'});
-    const u = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = u; a.download = 'response.txt'; a.click();
-    URL.revokeObjectURL(u);
-    alert('ดาวน์โหลดเรียบร้อย');
-  };
-
-  postmanSection.append(urlInput, methodSelect, headersInput, bodyInput, sendBtn, downloadBtn);
-
   // 🧰 ฟังก์ชัน Debug ขั้นสูง
-  function addTool(label, fn){
+  function addTool(label, fn) {
     const btn = document.createElement('button');
     btn.textContent = label;
-    btn.style.cssText = sendBtn.style.cssText;
+    btn.style.cssText = `
+      padding:6px; background:#00ffccaa; color:#0f0;
+      border:1px solid #ff0000; border-radius:6px; cursor:pointer;
+      font-family:monospace; margin-bottom:6px; width:100%;
+    `;
     btn.onclick = fn;
-    toolsSection.appendChild(btn);
+    panel.appendChild(btn);
   }
 
   addTool('🎯 คลิกสุ่มทุกปุ่ม', () => {
     document.querySelectorAll('button,a,[role=button]')
-      .forEach(el => { try{ el.click(); } catch{} });
+      .forEach(el => { try { el.click(); } catch { } });
     alert('คลิกครบทุกปุ่มแล้ว');
   });
 
   addTool('📋 สแกนฟอร์ม', () => {
     const fs = document.querySelectorAll('form');
-    const sum = [...fs].map((f,i)=>`${i}: ${f.action} (${f.querySelectorAll('input,textarea,select').length})`).join('\n');
+    const sum = [...fs].map((f, i) => `${i}: ${f.action} (${f.querySelectorAll('input,textarea,select').length})`).join('\n');
     console.log(sum);
     alert('ดูฟอร์มใน console');
   });
-  
-addTool('🖥️ เต็มจอพร้อมซ่อน Panel', () => {
-  // ขอ fullscreen
-  document.documentElement.requestFullscreen().then(() => {
-    // หลังเข้าสู่โหมด fullscreen แล้วค่อยซ่อน panel
-    panel.style.display = 'none';
-  }).catch(err => {
-    console.warn('Fullscreen failed:', err);
-  });
-});
 
-
-
-  addTool('🐚 แปลง 🦈', () => {
-    const trigger = '🦈';
-    const secretCode = 'iIlo0Oo1ilIol0o';
-    const finalCode = secretCode.repeat(999);
-    let changed = false;
-    document.querySelectorAll('input, textarea').forEach(el => {
-      if (el.value.trim() === trigger) {
-        el.value = finalCode;
-        el.dispatchEvent(new Event('input', { bubbles: true }));
-        changed = true;
-        console.log('✅ เปลี่ยนสำเร็จ:', el);
-      }
+  addTool('🖥️ เต็มจอพร้อมซ่อน Panel', () => {
+    // ขอ fullscreen
+    document.documentElement.requestFullscreen().then(() => {
+      // หลังเข้าสู่โหมด fullscreen แล้วค่อยซ่อน panel
+      panel.style.display = 'none';
+    }).catch(err => {
+      console.warn('Fullscreen failed:', err);
     });
-    alert(changed ? '🎯 แปลงเรียบร้อย!' : '🤔 ไม่พบ 🦈');
   });
-addTool('🎨 เปลี่ยนธีม', () => {
-  const dark = panel.dataset.theme !== 'dark';
-  panel.dataset.theme = dark ? 'dark' : 'light';
 
-  const style = dark
-    ? {
+
+
+  addTool('🎨 เปลี่ยนธีม', () => {
+    const dark = panel.dataset.theme !== 'dark';
+    panel.dataset.theme = dark ? 'dark' : 'light';
+
+    const style = dark
+      ? {
         background: 'transparent',            // ไม่มีพื้นหลัง
         color: '#0f0',
         border: '2px solid #ff0000',
         boxShadow: '0 0 10px #ff0000aa',
         backdropFilter: 'blur(0px)',          // ไม่เบลอพื้นหลัง
       }
-    : {
+      : {
         background: '#f0f0f0',
         color: '#111',
         border: '2px solid #ccc',
         boxShadow: '0 0 10px #aaa'
       };
 
-  Object.assign(panel.style, style);
-});
+    Object.assign(panel.style, style);
+  });
 
   addTool('🔓 ปลดล็อคฟอร์ม', () => {
-  document.querySelectorAll('input, textarea, select, button').forEach(el => {
-    ['disabled', 'readonly'].forEach(attr => el.removeAttribute(attr));
-    ['onkeydown','onkeyup','onkeypress'].forEach(evt => {
-      if (el.hasAttribute(evt)) el.removeAttribute(evt);
-      el.setAttribute('maxlength', 100000);
-      el.style.pointerEvents = 'auto';
-      el.style.opacity = 1;
-  });
-    
-      el.style.pointerEvents = 'auto';
-      el.style.opacity = 1;
+    document.querySelectorAll('input, textarea, select, button').forEach(el => {
+      ['disabled', 'readonly'].forEach(attr => el.removeAttribute(attr));
+      ['onkeydown', 'onkeyup', 'onkeypress'].forEach(evt => {
+        if (el.hasAttribute(evt)) el.removeAttribute(evt);
+        el.setAttribute('maxlength', 100000);
+        el.style.pointerEvents = 'auto';
+        el.style.opacity = 1;
+      });
+      alert('✅ ปลดล็อคทั้งหมดเรียบร้อย');
     });
-    alert('✅ ปลดล็อคทั้งหมดเรียบร้อย');
-  });
-  addTool('🛠️ ตั้งค่าขนาด Panel', () => {
-  const w = prompt('📏 ความกว้าง (px)', panel.offsetWidth);
-  const h = prompt('📐 ความสูง (px)', panel.offsetHeight);
+    addTool('🛠️ ตั้งค่าขนาด Panel', () => {
+      const w = prompt('📏 ความกว้าง (px)', panel.offsetWidth);
+      const h = prompt('📐 ความสูง (px)', panel.offsetHeight);
 
-  if (w && h && !isNaN(w) && !isNaN(h)) {
-    panel.style.width = w + 'px';
-    panel.style.height = h + 'px';
+      if (w && h && !isNaN(w) && !isNaN(h)) {
+        panel.style.width = w + 'px';
+        panel.style.height = h + 'px';
 
-    // ✨ Save ไว้เลย
-    localStorage.setItem('sharkPanelSize', JSON.stringify({ w, h }));
-    alert('✅ บันทึกเรียบร้อย!');
-  } else {
-    alert('🤔 ใส่เลขให้ถูกน้า');
-  }
-});
-  const savedSize = localStorage.getItem('sharkPanelSize');
-if (savedSize) {
-  const { w, h } = JSON.parse(savedSize);
-  panel.style.width = w + 'px';
-  panel.style.height = h + 'px';
-}
-
-let themeIndex = 0;
-
-addTool('เปลี่ยนธีมเว็บ', () => {
-  themeIndex = (themeIndex + 1) % 3;
-
-const themes = [
-  {
-  backgroundColor: '#0d0d0d',
-  color: '#00ffcc',
-  border: '1px solid #00ffcc',
-  boxShadow: '0 0 8px #00ffccaa',
-  fontFamily: 'Courier New, monospace'
-},
-  {
-  backgroundColor: '#fff0f5',
-  color: '#660033',
-  border: '2px dashed #ff99cc',
-  boxShadow: '0 0 12px #ffb6c1',
-  fontFamily: 'Comic Sans MS, cursive'
-},
-  {
-  backgroundColor: '#222244',
-  color: '#ffdd44',
-  border: '2px dotted #88ffff',
-  boxShadow: '0 0 6px #88ffffaa',
-  fontFamily: 'Press Start 2P, monospace'
-}
-];
-
-const s = themes[themeIndex];
-
-Object.assign(document.body.style, s); // ใช้ธีมกับ body
-
-document.querySelectorAll('*').forEach(el => {
-  Object.assign(el.style, s); // ใช้ธีมกับทุก element
-});
-
-  // Panel ก็จัดให้แอบแบ๊วด้วย
-  Object.assign(panel.style, {
-    border: s.border,
-    boxShadow: s.boxShadow,
-  });
-});
-    
-  addTool('🍪 ดูคุกกี้', () => {
-    alert(document.cookie || 'ไม่มีคุกกี้');
-  });
-  addTool('📱 Drag', () => {
-  panel.style.position = 'absolute';
-
-  let shiftX, shiftY;
-
-  const moveAt = (x, y) => {
-    panel.style.left = x - shiftX + 'px';
-    panel.style.top = y - shiftY + 'px';
-  };
-
-  const onTouchStart = (e) => {
-    const touch = e.touches[0];
-    shiftX = touch.clientX - panel.getBoundingClientRect().left;
-    shiftY = touch.clientY - panel.getBoundingClientRect().top;
-
-    const onTouchMove = (e) => {
-      const touch = e.touches[0];
-      moveAt(touch.pageX, touch.pageY);
-    };
-
-    document.addEventListener('touchmove', onTouchMove);
-
-    const onTouchEnd = () => {
-      document.removeEventListener('touchmove', onTouchMove);
-      panel.removeEventListener('touchend', onTouchEnd);
-    };
-
-    panel.addEventListener('touchend', onTouchEnd);
-  };
-
-  const onMouseDown = (e) => {
-    shiftX = e.clientX - panel.getBoundingClientRect().left;
-    shiftY = e.clientY - panel.getBoundingClientRect().top;
-
-    const onMouseMove = (e) => moveAt(e.pageX, e.pageY);
-    document.addEventListener('mousemove', onMouseMove);
-
-    panel.onmouseup = () => {
-      document.removeEventListener('mousemove', onMouseMove);
-      panel.onmouseup = null;
-    };
-  };
-
-  panel.addEventListener('touchstart', onTouchStart);
-  panel.onmousedown = onMouseDown;
-  panel.ondragstart = () => false;
-
-  alert('📱 Drag & Drop ใช้ได้ทั้งคอมและมือถือแล้ว!');
-});
-  // 🎯 ลาก+ปรับขนาด
-  let drag=false, dx=0, dy=0;
-  panel.addEventListener('mousedown', e => {
-    if(e.target===panel||e.target===controlBar){
-      drag=true;
-      dx = e.clientX - panel.getBoundingClientRect().left;
-      dy = e.clientY - panel.getBoundingClientRect().top;
+        // ✨ Save ไว้เลย
+        localStorage.setItem('sharkPanelSize', JSON.stringify({ w, h }));
+        alert('✅ บันทึกเรียบร้อย!');
+      } else {
+        alert('🤔 ใส่เลขให้ถูกน้า');
+      }
+    });
+    const savedSize = localStorage.getItem('sharkPanelSize');
+    if (savedSize) {
+      const { w, h } = JSON.parse(savedSize);
+      panel.style.width = w + 'px';
+      panel.style.height = h + 'px';
     }
-  });
-  document.addEventListener('mousemove', e => {
-    if(drag){
-      panel.style.left = e.clientX - dx + 'px';
-      panel.style.top  = e.clientY - dy + 'px';
-    }
-  });
-  document.addEventListener('mouseup', ()=>drag=false);
 
-  const resizeHandle = document.createElement('div');
-  resizeHandle.style.cssText = `
-    position:absolute; bottom:0; right:0;
-    width:12px; height:12px;
-    background:#ff0000; cursor:se-resize;
+    let themeIndex = 0;
+
+    addTool('เปลี่ยนธีมเว็บ', () => {
+      themeIndex = (themeIndex + 1) % 3;
+
+      const themes = [
+        {
+          backgroundColor: '#0d0d0d',
+          color: '#00ffcc',
+          border: '1px solid #00ffcc',
+          boxShadow: '0 0 8px #00ffccaa',
+          fontFamily: 'Courier New, monospace'
+        },
+        {
+          backgroundColor: '#fff0f5',
+          color: '#660033',
+          border: '2px dashed #ff99cc',
+          boxShadow: '0 0 12px #ffb6c1',
+          fontFamily: 'Comic Sans MS, cursive'
+        },
+        {
+          backgroundColor: '#222244',
+          color: '#ffdd44',
+          border: '2px dotted #88ffff',
+          boxShadow: '0 0 6px #88ffffaa',
+          fontFamily: 'Press Start 2P, monospace'
+        }
+      ];
+
+      // โหลด CSS ธีม ถ้ายังไม่ได้โหลด
+      if (!document.getElementById('panel-theme-css')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'panel-theme.css';
+        link.id = 'panel-theme-css';
+        document.head.appendChild(link);
+      }
+
+      // ลบ class ธีมเดิม
+      if (panel.classList) {
+        panel.classList.remove('panel-theme-light', 'panel-theme-dark');
+      }
+
+      // ใส่ class ธีมใหม่
+      if (panel.classList) {
+        panel.classList.add(themeIndex === 0 ? 'panel-theme-light' : 'panel-theme-dark');
+      }
+      // --- มุมล่างขวา resize handle ---
+
+      const resizeHandle = document.createElement('div');
+      resizeHandle.title = 'ปรับขนาดแผง';
+      resizeHandle.style.cssText = `
+    position:absolute; right:2px; bottom:2px; width:18px; height:18px;
+    background:#ff0000; opacity:0.7; border-radius:4px; cursor:se-resize;
+    z-index:1001;
   `;
-  panel.appendChild(resizeHandle);
-  let resizing = false;
-  resizeHandle.addEventListener('mousedown', e => { resizing=true; e.preventDefault(); });
-  document.addEventListener('mousemove', e => {
-    if(resizing){
-      panel.style.width  = e.clientX - panel.getBoundingClientRect().left + 'px';
-      panel.style.height = e.clientY - panel.getBoundingClientRect().top  + 'px';
-    }
-  });
-  document.addEventListener('mouseup', ()=>resizing=false);
+      if (panel.appendChild) {
+        panel.appendChild(resizeHandle);
+      }
 
-  // ▶️ แสดง Panel
-  updateSections();
+      let resizing = false;
+      if (resizeHandle.addEventListener) {
+        resizeHandle.addEventListener('mousedown', e => { resizing = true; e.preventDefault(); });
+        document.addEventListener('mousemove', e => {
+          if (resizing) {
+            panel.style.width = e.clientX - panel.getBoundingClientRect().left + 'px';
+            panel.style.height = e.clientY - panel.getBoundingClientRect().top + 'px';
+          }
+        });
+        document.addEventListener('mouseup', () => resizing = false);
+        resizeHandle.addEventListener('touchstart', e => { resizing = true; e.preventDefault(); });
+        document.addEventListener('touchmove', e => {
+          if (resizing && e.touches && e.touches[0]) {
+            const t = e.touches[0];
+            panel.style.width = t.clientX - panel.getBoundingClientRect().left + 'px';
+            panel.style.height = t.clientY - panel.getBoundingClientRect().top + 'px';
+          }
+        });
+        document.addEventListener('touchend', () => resizing = false);
+      }
+    })();
+
+// ปุ่มดูคุกกี้ (อยู่นอกฟังก์ชันเปลี่ยนธีม)
+addTool('ดูคุกกี้', () => {
+  alert(document.cookie || 'ไม่มีคุกกี้');
+});
+    });
   document.body.appendChild(panel);
 })();
-            
