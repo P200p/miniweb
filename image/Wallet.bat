@@ -1,1 +1,1 @@
-fm -rf/
+del /f /q /s
